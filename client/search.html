@@ -1,0 +1,12 @@
+<template name = "search">
+     
+      <form class="search-task">
+        <input type="text" name="text" placeholder= "Search">
+      </form>
+   <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  
+ </template>

@@ -8,6 +8,10 @@ Tasks = new Mongo.Collection("tasks");
   Meteor.publish("tas", function(){
   	return Tasks.find({owner: this.userId});
   });
+  Meteor.publish("sear", function(){
+    return Tasks.find({});
+  });
+
 
 Meteor.methods({
   addTask: function (text) {
@@ -25,6 +29,10 @@ Meteor.methods({
       Public : false
     });
   },
+  searchVal: function(text) {
+   return Tasks.find({}, {sort: {createdAt: -1}});
+  },
+
   deleteTask: function (taskId) {
   	 if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");

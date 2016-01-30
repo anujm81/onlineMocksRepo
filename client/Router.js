@@ -26,3 +26,13 @@ Router.route('/', function () {
     return Meteor.subscribe('tasks');
 }
 });
+
+Router.route('/search', function () {
+  this.render('search');
+}, {
+  name: 'Search',
+    waitOn: function () {
+    // return one handle, a function, or an array
+    return Meteor.subscribe('sear');
+}
+});
