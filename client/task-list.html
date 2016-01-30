@@ -1,0 +1,31 @@
+<template name="taskList">
+  <div class="">
+    <h1>ALL ADD ({{currentUser.username}})</h1>
+ 
+      <label class="hide-completed">
+        <input type="checkbox" checked="{{hideCompleted}}" />
+        Hide Completed Tasks
+      </label>
+
+      
+
+    
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+ 
+  </div>
+
+</template>
+
+<template name="Post">
+  <p>
+    {{post_content}}
+  </p>
+</template>
+
+<template name="PostFooter">
+ {{enterpost}}
+</template>

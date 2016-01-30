@@ -1,0 +1,31 @@
+<template name="layoutTemplateHere">
+
+  
+    <!-- <h1>{{ALL ADD}}</h1> -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">  
+    	<div class="container-fluid"> 
+    		<div class="navbar-header">     			
+    		</div> 
+    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6"> 
+    			<ul class="nav navbar-nav"> 
+    				<li class="active"><a href="{{pathFor 'home'}}">ALL Tasks</a></li> 
+    				<li><a href="{{pathFor 'addNew' _id='add'}}">Add Task</a></li> 
+    				<li><a href="#">Link</a></li> 
+    			</ul> 
+    			<ul class="nav navbar-nav navbar-right">
+		            {{> loginButtons}} 
+		        </ul>
+    		</div> 
+    	</div>     	
+    </nav>
+  
+
+  <!-- <article>
+    {{> yield}}
+  </article> -->
+  <div class="container" style="margin-top:60px;">
+  	{{> yield}}
+  </div>
+  
+
+</template>

@@ -1,0 +1,12 @@
+<template name = "post">
+     
+      <form class="new-task">
+        <input type="text" name="text" placeholder= "Enter here" value="{{text}}">
+      </form>
+      <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  
+ </template>
