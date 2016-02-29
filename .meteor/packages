@@ -21,3 +21,4 @@ accounts-password
 twbs:bootstrap
 iron:router
 reactive-var
+easy:search

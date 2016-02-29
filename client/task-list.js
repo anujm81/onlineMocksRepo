@@ -1,4 +1,4 @@
-Tasks = new Mongo.Collection("tasks");
+
  
 
   // This code only runs on the client

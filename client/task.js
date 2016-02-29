@@ -21,4 +21,5 @@ Template.task.helpers({
     Router.go('addNew',{_id: this._id});
   }
 
-  });
+  });\
+ */ccvdsvdsvsdvsdv/*

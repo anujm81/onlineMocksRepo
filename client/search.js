@@ -1,27 +1,17 @@
-Template.search.events({
-    "submit .search-task": function (event) {
-      // Prevent default browser form submit
-      event.preventDefault();
- 
-      // Get value from form element
-      var textVal = event.target.text.value;
+Tasks = new Mongo.Collection("tasks");
+PersonIndex = new EasySearch.Index({
+  collection: Tasks,
+  fields: ['username'],
+  engine: new EasySearch.Minimongo()
+});
 
- 
-      // Insert a task into the collection
-      if(this._id){
-      Meteor.call("searchVal", textVal);
-    }
-      else{
-        throw new Meteor.Error("not-found");
-      }
- 
-      // Clear form
-      event.target.text.value = "";
-    }
+Tracker.autorun(function () {
+  let cursor = PersonIndex.search('rahul'); // search all docs that contain "Marie" in the name or score field
 
-  });
- Template.search.helpers({
-    tasks: function () {
-      return Tasks.find({}, {sort: {createdAt: -1}});
-    }
-  });
+  console.log(cursor.fetch()); // log found documents with default search limit
+  console.log(cursor.count()); // log count of all found documents
+});
+
+Template.search.helpers({
+  PersonIndex: () => PersonIndex // instanceof EasySearch.Index
+});

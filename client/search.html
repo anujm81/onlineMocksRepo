@@ -1,12 +1,16 @@
-<template name = "search">
-     
-      <form class="search-task">
-        <input type="text" name="text" placeholder= "Search">
-      </form>
-   <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-  
- </template>
+<template name="search">
+  {{> EasySearch.Input index=PersonIndex}}
+{{#if currentUser}}
+  <ul>
+    {{#EasySearch.Each index=PersonIndex}}
+      <li> {{username}} {{text}} </li>
+    {{/EasySearch.Each}}
+  </ul>
+  {{/if}}
+
+  {{> EasySearch.LoadMore index=PersonIndex}}
+
+  {{#EasySearch.IfNoResults index=PersonIndex}}
+    <div class="no-results">No results found!</div>
+  {{/EasySearch.IfNoResults}}
+</template>

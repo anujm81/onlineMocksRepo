@@ -52,3 +52,8 @@ Meteor.methods({
     Tasks.update(taskId, { $set: {Public : setPrivate} });
   }
 });
+PersonIndex = new EasySearch.Index({
+  collection: Tasks,
+  fields: ['username'],
+  engine: new EasySearch.Minimongo()
+});
